@@ -14,6 +14,24 @@ app.use(express.urlencoded({
 }))
 app.use(express.json())
 
+app.post("/register/save", (request, response) =>{
+    const {title, pageqty} = request.body
+    const query =`
+    INSERT INTO books(title, pageqty)
+    VALUES ('${book.title}, ${book.pageqty}')
+    `
+    conn.query(query,(error)=>{
+        if(error){
+            console.log(error)
+        }
+        response.redirect("/")
+    })
+})    
+
+app.get("/register", (request, response) =>{
+    response.render("register")
+})
+
 
 app.get("/", (req, res) => {
     res.render("home")
