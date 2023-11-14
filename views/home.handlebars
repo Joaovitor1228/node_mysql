@@ -2,9 +2,14 @@
     <h2>Home</h2>
 
     {{#each books}}
-<div>
-    <h3>Titulo:{{this.title}}</h3>
+    <div class="book">
+        <h3>Titulo:{{this.title}}</h3>
     <p>quantidade de paginas:{{this.pageqty}}</p>
+
+    <div class="buttons">
+        <a href="/book/{{this.id}}" class="mais">Ver mais</a>
+        <a href="/edit/{{this.id}}" class="editar">Editar</a>
+    </div>
 </div>
     {{/each}}
 
